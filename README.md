@@ -28,3 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 // 资料
 http://wiki.jikexueyuan.com/project/typescript/Generics.html
+http://www.jianshu.com/p/68284d1973b0
+https://netbasal.com/understanding-subjects-in-rxjs-55102a190f3
+http://gitbook.cn/gitchat/column/59dae2081e6d652a5a9c3603
