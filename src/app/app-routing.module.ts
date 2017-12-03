@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HeroFormComponent } from './hero-form.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full',
+  },
+  {
+    path: 'heroform',
+    component: HeroFormComponent,
   },
   {
     path: 'detail/:id',
