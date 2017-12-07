@@ -20,7 +20,8 @@ import { HeroFormReactiveComponent } from './reactive/hero-form-reactive.compone
 
 import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 import { EmailValidatorDirective } from './shared/email-validator.directive';
-
+import { HighlightDirective } from './shared/highlight.directive';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   imports: [
@@ -39,10 +40,11 @@ import { EmailValidatorDirective } from './shared/email-validator.directive';
     HeroFormComponent,
     HeroSearchComponent,
     HeroFormReactiveComponent,
+    HighlightDirective,
     EmailValidatorDirective,
     ForbiddenValidatorDirective,
   ],
-  providers: [HeroService],
+  providers: [HeroService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
