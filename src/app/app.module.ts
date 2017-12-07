@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { HeroService } from './hero.service';
@@ -16,10 +16,16 @@ import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
+import { HeroFormReactiveComponent } from './reactive/hero-form-reactive.component';
+
+import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
+import { EmailValidatorDirective } from './shared/email-validator.directive';
+
 
 @NgModule({
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserModule,
     AppRoutingModule,
@@ -32,6 +38,9 @@ import { HeroSearchComponent } from './hero-search.component';
     HeroesComponent,
     HeroFormComponent,
     HeroSearchComponent,
+    HeroFormReactiveComponent,
+    EmailValidatorDirective,
+    ForbiddenValidatorDirective,
   ],
   providers: [HeroService],
   bootstrap: [AppComponent],

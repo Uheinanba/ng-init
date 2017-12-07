@@ -12,10 +12,22 @@
           name="name"
           id="name"
           #name="ngModel"
+          minlength="4"
+          forbiddenName="bob"
+          isEmail
           required>
-        <div [hidden]="name.valid || name.pristine"
-          class="alert alert-danger">
-          name is required
+        <div class="alert alert-danger"
+          *ngIf="name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name.errors.forbiddenName">
+            Name cannot be bob.
+          </div>
+          <p *ngIf="name.errors.isEmail">* Email must be valid</p>
         </div>
       </div>
 
