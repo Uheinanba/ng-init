@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeroFormComponent } from './hero-form.component';
 import { HeroFormReactiveComponent } from './reactive/hero-form-reactive.component';
+import { DemoFormReactiveComponent } from './reactive/demo-form-reactive.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { DashboardComponent } from './dashboard.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'heroreactiveform',
     component: HeroFormReactiveComponent
+  },
+  {
+    path: 'demoreactiveform',
+    component: DemoFormReactiveComponent
   },
   {
     path: 'heroform',

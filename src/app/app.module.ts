@@ -18,6 +18,9 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
 import { HeroFormReactiveComponent } from './reactive/hero-form-reactive.component';
 
+import { DemoFormReactiveComponent } from './reactive/demo-form-reactive.component';
+
+
 import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 import { EmailValidatorDirective } from './shared/email-validator.directive';
 import { HighlightDirective } from './shared/highlight.directive';
@@ -42,6 +45,7 @@ import { UserService } from './shared/user.service';
     HeroFormReactiveComponent,
     HighlightDirective,
     EmailValidatorDirective,
+    DemoFormReactiveComponent,
     ForbiddenValidatorDirective,
   ],
   providers: [HeroService, UserService],
