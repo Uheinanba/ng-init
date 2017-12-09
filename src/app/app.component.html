@@ -1,0 +1,8 @@
+<div>
+  <p *ngFor="let hero of heroes">
+    {{hero.name}}
+  </p>
+  <p>父组件当前值：{{ initCount }}</p> 
+  <app-detail [(count)]="initCount"></app-detail>
+  <button (click)="handleAdd($event)">add</button>
+</div>
