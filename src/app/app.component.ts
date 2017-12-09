@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-root',
   template: `
-    <h1>{{title}}</h1>
-    <nav>
-      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-      <a routerLink="/heroform" routerLinkActive="active">HeroesForm</a>
-      <a routerLink="/heroreactiveform" routerLinkActive="active">HeroesReactiveForm</a>
-      <a routerLink="/demoreactiveform" routerLinkActive="active">DemoReactiveForm</a>
-    </nav>
-    <router-outlet></router-outlet>
+    <div>
+      <p *ngFor="let hero of heroes">
+        {{hero.name}}
+      </p>
+    </div>
   `,
-  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'tour of heroes';
+  heroes: Hero[];
+
+  constructor() {
+    this.heroes = [new Hero('yuank', 1), new Hero('rj', 2)];
+  }
 }
