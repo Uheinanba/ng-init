@@ -1,22 +1,26 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  SimpleChanges,
+  Output,
+  Input,
+  DoCheck,
+  OnChanges,
+} from '@angular/core';
 import { Hero } from './hero';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
 })
-export class DetailComponent {
-  @Input() count: number = 0;
+export class DetailComponent implements OnChanges, DoCheck {
+  @Input() heroes;
 
-  @Output() countChange: EventEmitter<number> = new EventEmitter<number>();
-
-  inc() {
-    this.count++;
-    this.countChange.emit(this.count);
+  ngDoCheck(): void {
+    // console.log(3434);
   }
 
-  desc() {
-    this.count--;
-    this.countChange.emit(this.count);
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('detail onchange', changes);
   }
 }

@@ -1,3 +1,5 @@
-<div>detail</div>
-<button (click)="inc()">+</button>
-<button (click)="desc()">-</button>
+<p *ngFor="let hero of heroes" mySpy>
+  {{hero}}
+</p>
+
+<ng-content></ng-content>

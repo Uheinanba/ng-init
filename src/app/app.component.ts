@@ -1,20 +1,34 @@
-import { Component } from '@angular/core';
-import { Hero } from './hero';
+import {
+  Component,
+  ViewChild,
+  AfterViewInit,
+  AfterViewChecked,
+} from '@angular/core';
+import { DetailComponent } from './detail.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent {
-  initCount: number = 20;
-  heroes: Hero[];
-
-  constructor() {
-    this.heroes = [new Hero('yuank', 1), new Hero('rj', 2)];
+export class AppComponent implements AfterViewInit, AfterViewChecked {
+  hero = '';
+  heroes = [];
+  @ViewChild(DetailComponent) viewChild: DetailComponent;
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked', this.viewChild);
   }
-
-  handleAdd(e): void {
-    console.log(e);
-    // this.heroes.push(new Hero('heimanba', 3));
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit', this.viewChild);
   }
+  add() {
+    if (this.hero) {
+      this.heroes.push(this.hero);
+      this.hero = '';
+    }
+  }
+  reset() {
+    this.heroes = [];
+    this.hero = '';
+  }
+  constructor() {}
 }
