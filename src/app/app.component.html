@@ -1,8 +1,11 @@
 <div>
   <input type="text" [(ngModel)]="hero">
+  <p>{{num}}</p>
+  <p>{{detail.voted}}</p>
   <button (click)="add()">add</button>
-  <button (click)="reset()">reset</button>
-  <app-detail [heroes]="heroes">
-    <app-demo></app-demo>
-  </app-detail>
+  <app-detail
+    #detail
+    (onVoted)="onVoted($event)"
+    [master]=master
+  ></app-detail>
 </div>

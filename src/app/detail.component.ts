@@ -1,26 +1,37 @@
 import {
   Component,
+  Input,
+  Output,
+  OnChanges,
   EventEmitter,
   SimpleChanges,
-  Output,
-  Input,
-  DoCheck,
-  OnChanges,
+  SimpleChange,
 } from '@angular/core';
-import { Hero } from './hero';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
 })
-export class DetailComponent implements OnChanges, DoCheck {
-  @Input() heroes;
+export class DetailComponent implements OnChanges {
+  private _name = '';
+  @Input()
+  set master(name: string) {
+    this._name = (name && name.toUpperCase()) || '<no name set>';
+  }
+  get master(): string {
+    return this._name;
+  }
+  @Output() onVoted = new EventEmitter<boolean>();
+  voted = false;
 
-  ngDoCheck(): void {
-    // console.log(3434);
+  vote(agreed: boolean) {
+    this.onVoted.emit(agreed);
+    this.voted = true;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('detail onchange', changes);
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    console.log(changes);
   }
+
+  constructor() {}
 }
